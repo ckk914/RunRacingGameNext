@@ -20,8 +20,20 @@
 	}
 }
 
+@font-face {
+  font-family: 'DungGeunMo';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+* {
+  font-family: 'DungGeunMo';
+}
+
 body{
 background: rgb(192, 192, 192);
+position: relative;
+background-image: url(https://previews.123rf.com/images/1001holiday/1001holiday1209/1001holiday120900010/15406263-%EC%8B%A0%EB%AC%B8%EC%9D%98-%EA%B5%AC%EA%B2%A8%EC%A7%84-%ED%8E%98%EC%9D%B4%EC%A7%80.jpg);
 }
 
 .topTitle{
@@ -29,15 +41,41 @@ background: rgb(192, 192, 192);
 	height: 300px;
 	/* background: red; */
 	position: relative;
-	top:100px;
+	top:40px;
 	left: 9%;
 	background: url('../img/logo.png') no-repeat center;
   z-index: 10;
 	animation: fadeInLeft 1s;
 }
+
+/*  게임설명 */
+.gif{
+	margin: 0 auto;
+	width: 1300px;
+	position: relative;
+	top: 50px;
+	/* background: red; */
+	/* z-index: 100; */
+}
+.gif ul{
+	display: flex;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	font-size: 40px;
+	justify-content: space-around;
+}
+.gif ul:hover{
+	/* color: red; */
+}
+.gif ul li:hover{
+	color: #018f54;
+}
+
+
 .rouletter {
   position: relative;
-	margin-top: 12%;
+	margin-top: 6%;
 	margin-left: 40%;
   width: 400px;
   height: 400px;
@@ -46,9 +84,10 @@ background: rgb(192, 192, 192);
 }
 
 .StartContainer{
-	width: 98%;
-	height: 1100px;
-	background: rgb(209, 209, 209);
+	width: 100%;
+	height: 99vh;
+	background-image: url(/LuckyRoulette/img/background.jpg);
+	/* background: rgb(209, 209, 209); */
 	position:absolute;
 	z-index: 10;
 }
@@ -83,7 +122,7 @@ background: rgb(192, 192, 192);
 
 @keyframes jumping {
 	from {
-    top: -500px;
+    top: -400px;
   }
   to {
     top: 0px;
@@ -146,48 +185,105 @@ background: rgb(192, 192, 192);
 /* 종료 창 영역 - 다른 게임 넘어가는 창 */
 .endContainer{
 	
-	width: 33%;
+	width: 25%;
 	height: 50%;
 	/* background: rgba(0,0,0,0.3); */
 	position:absolute;
 	top:25%;
-	left: 33%;
-	background:rgb(184, 60, 157);
-	border: 10px double goldenrod;
+	left: 38%;
+	background:#fff;
+	/* border: 10px double goldenrod; */
 	border-radius: 10%;
 	z-index: 11;
 }
 .endContainer .endMessage{
-	color: #fff;
-	font-size: 50px;
+	color: #222;
+	font-size: 2.8em;
 	position: absolute;
 	top: 20%;
-	left: 29%;
-	background:rgb(184, 60, 157);
+	left: 15%;
+	/* background:rgb(184, 60, 157); */
 
 }
 .endContainer .endMessage2{  
-	color: #fff;
-	font-size: 35px;
+	color: #222;
+	font-size: 1.5em;
 	position: absolute;
 	top: 45%;
-	left: 19%;
+	left: 16%;
 	width: 500px;
 	/* background:rgb(184, 60, 157); */
 	margin: 0 auto;
 }
 
 .endContainer .applyBtn{
-	color: #fff;
+	color: #222;
 	position: absolute;
 	top: 70%;
-	left: 31%;
-	font-size: 50px;
+	left: 21%;
+	padding: 10px;
+	font-size: 55px;
 	background:rgb(197, 189, 178);
 	border: 3px solid #eee;
+	cursor: pointer;
 	/* position: absolute; */
 	/* display: block; */
 }
+.applyBtn:hover {
+  background: #018f54;
+  color: white;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.gif ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.gif ul li {
+  margin: 10px;
+  cursor: pointer;
+}
+
+.game-description {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+
+.imgBox {
+	/* background: red; */
+  width: 300px;
+  height: 400px;
+  position: absolute;
+  bottom: 30px;
+  left: 1300px;
+  /* transform: translate(-50%, -50%); */
+  z-index: 1000;
+  border: 5px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.gif ul li img{
+	display: none;
+}
+.gif ul li:hover{
+	display: block;
+}
+
 
 /* 옵션 */
 .disable{

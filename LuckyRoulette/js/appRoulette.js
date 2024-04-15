@@ -10,14 +10,13 @@ const $endContainer = document.querySelector(`.endContainer`);
 const $endMessage = document.querySelector(`.endMessage`);
 const $endMessage2 = document.querySelector(`.endMessage2`);
 const $applyBtn = document.querySelector(`.applyBtn`); //게임시작
+const $gif = document.querySelector('.gif'); // 게임설명
 
 let StartFlag = false;
 let StartFlag2 = false;
 
 const rRandom = () => {
-  var min = Math.ceil(0);
-  var max = Math.floor(rolLength - 1);
-  return Math.floor(Math.random() * (max - min)) + min;
+  return Math.floor(Math.random() * rolLength); // 0부터 rolLength 미만의 랜덤한 정수 반환
 };
 
 const rRotate = () => {
@@ -68,7 +67,7 @@ $applyBtn.addEventListener(`click`,()=>{
 location.href='././Whackamole/whack-a-mole.html'; //현재창에 열기
 				break;
 			case 3:
-location.href='././ImageSwipeGame/index.html'; //현재창에 열기
+location.href='././ImageSwipeGame/indexImageSwipeGame.html'; //현재창에 열기
 			break;
 			case 5:
 location.href='././BrickOut/indexBrickOut.html'; //현재창에 열기
@@ -86,8 +85,8 @@ const rLayerPopup = (num) => {
     case 1:
 			
 $endContainer.classList.remove(`Hidden`);
-          $endContainer.style.background = `#222`;
-          $endMessage.style.background = `#222`;
+          // $endContainer.style.background = `#222`;
+          // $endMessage.style.background = `#222`;
           $endMessage2.textContent = `두더지 게임을 진행하세요.`;
 
           $applyBtn.textContent = `게임 시작`;
@@ -97,8 +96,8 @@ $endContainer.classList.remove(`Hidden`);
       break;
     case 3:
 			$endContainer.classList.remove(`Hidden`);
-          $endContainer.style.background = `#222`;
-          $endMessage.style.background = `#222`;
+          // $endContainer.style.background = `#222`;
+          // $endMessage.style.background = `#222`;
           $endMessage2.textContent = `이미지 맞추기 게임을 진행하세요.`;
 
           $applyBtn.textContent = `게임 시작`;
@@ -109,8 +108,8 @@ $endContainer.classList.remove(`Hidden`);
 			break;
     case 5:
 			$endContainer.classList.remove(`Hidden`);
-			$endContainer.style.background = `#222`;
-			$endMessage.style.background = `#222`;
+			// $endContainer.style.background = `#222`;
+			// $endMessage.style.background = `#222`;
 			$endMessage2.textContent = `숫자 클릭 게임을 진행하세요.`;
 
 			$applyBtn.textContent = `게임 시작`;
@@ -119,8 +118,8 @@ $endContainer.classList.remove(`Hidden`);
       break;
     default:
 			$endContainer.classList.remove(`Hidden`);
-			$endContainer.style.background = `#222`;
-			$endMessage.style.background = `#222`;
+			// $endContainer.style.background = `#222`;
+			// $endMessage.style.background = `#222`;
 			$endMessage2.textContent = `꽝게임 :2048을 진행하세요.`;
 			
 			$applyBtn.textContent = `게임 시작`;
@@ -159,3 +158,55 @@ document.getElementById("app").innerHTML = `
     <button class="rouletter-btn">start</button>
 </div>
 `;
+
+const gifList = [
+  { name: '숫자게임', description: '숫자를 맞추는 게임입니다.' },
+  { name: '2048게임', description: '숫자 블록을 합쳐 2048을 만드는 게임입니다.' },
+  { name: '두더지게임', description: '나오는 두더지를 잡는 게임입니다.' },
+  { name: '이미지게임', description: '주어진 이미지를 맞추는 게임입니다.' }
+];
+
+
+const gifElements = document.querySelectorAll('.gif ul li');
+const imgBox = document.querySelector('.imgBox');
+
+gifElements.forEach((element, index) => {
+  element.addEventListener('mouseenter', () => {
+    showImageBox(index);
+  });
+
+  element.addEventListener('mouseleave', () => {
+    hideImageBox();
+  });
+});
+
+function showImageBox(index) {
+  // 이미지 박스 보이기
+  imgBox.style.display = 'block';
+  // 해당 요소의 이미지 가져오기
+  const imageSrc = gifElements[index].querySelector('img').src;
+  // 이미지 박스에 설정
+  imgBox.innerHTML = `<img src="${imageSrc}" style="width: 100%; height: 100%; object-fit: cover;">`;
+}
+
+function hideImageBox() {
+  // 이미지 박스 숨기기
+  imgBox.style.display = 'none';
+}
+
+
+
+
+$gif.addEventListener('mouseover', (e) => {
+  if(e.target.matches('.gif1')){
+    
+  } else if(e.target.matches('.gif2')){
+
+  } else if (e.target.matches('.gif3')){
+
+  } else if (e.target.matches('.gif4')){
+
+  }
+  
+  console.log(e.target);
+});
