@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+
+  <div class='overlay'></div>
+  <div class='intro modal'>
+    <div class='intro modal_inner'>
+      <div class='intro modal_inner__title'>
+        <h2>이미지 매치 게임</h2>
+      </div>
+      <div class='intro modal_inner__text'>
+        <p>제한시간 안에 이미지를 완성하세요!</p>
+      </div>
+      <div class='intro modal_inner__image'>
+        <img src="css/images/example.gif">
+      </div>
+      <div class='intro modal_inner__cta c_modal'>
+        <button class='start'>시작하기!</button>
+      </div>
+    </div>
+  </div>
+
+<div id="wrap">
+  <div id="thumbnails">
+    <img id="thumbnails1">
+    <h1>이미지 매치 게임</h1>
+    <h3>← 이미지를 참고하세요!</h3>
+    <p class="turns">0</p>
+    <p class="total">/3</p>
+    <span class='timer'></span>
+  </div>
+
+  <div id="slider">
+    <div class="slide" id="slide1">
+      <button id="prev1">←</button>
+      <img data-id="1" id="img1">
+      <button id="next1">→</button>
+    </div>
+
+    <div class="slide" id="slide2">
+      <button id="prev2">←</button>
+      <img data-id="2" id="img2">
+      <button id="next2">→</button>
+    </div>
+
+    <div class="slide" id="slide3">
+      <button id="prev3">←</button>
+      <img data-id="3" id="img3">
+      <button id="next3">→</button>
+    </div>
+
+    <div class="slide" id="slide4">
+      <button id="prev4">←</button>
+      <img data-id="4" id="img4">
+      <button id="next4">→</button>
+    </div>
+  </div>
+  
+  <div class="correct">
+    <p>○</p>
+  </div>
+</div>
+  
+  <div class='winner modal'>
+    <h2>축하합니다!</h2>
+    <button class='apply'>응모하러 가기</button>
+  </div>
+  <div class="timeout modal">
+    <h2>시간 초과!</h2>
+    <button class="retry">다시하기</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  /* background: #222; */
+}
+
+hr {
+  width: 500px;
+}
+
+.header{
+  width: 500px;
+  margin: 0 auto;
+  /* background: red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1{
+  font-size: 50px;
+}
+
+
+#score{
+  margin-right: 15px;
+}
+
+#bestScore{
+
+}
+
+#board {
+  width: 400px;
+  height: 400px;
+
+  background-color: #cdc1b5;
+  border: 6px solid #bbada0;
+
+  margin: 50px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tile {
+  width: 90px;
+  height: 90px;
+  border: 5px solid #bbada0;
+
+  font-size: 40px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h3{
+  font-size: 30px;
+}
+
+/* colored tiles */
+
+.x2 {
+  background-color: #eee4da;
+  color: #727371;
+}
+
+.x4 {
+  background-color: #ece0ca;
+  color: #727371;
+}
+
+.x8 {
+  background-color: #f4b17a;
+  color: white;
+}
+
+.x16{
+  background-color: #f59575;
+  color: white;
+}
+
+.x32{
+  background-color: #f57c5f;
+  color: white;
+}
+
+.x64{
+  background-color: #f65d3b;
+  color: white;
+}
+
+.x128{
+  background-color: #edce71;
+  color: white;
+}
+
+.x256{
+  background-color: #edcc63;
+  color: white;
+}
+
+.x512{
+  background-color: #edc651;
+  color: white;
+}
+
+.x1024{
+  background-color: #eec744;
+  color: white;
+}
+
+.x2048{
+  background-color: #ecc230;
+  color: white;
+}
+
+.x4096 {
+  background-color: #fe3d3d;
+  color: white;
+}
+
+.x8192 {
+  background-color: #ff2020;
+  color: white;
+}
+
+
+
+
+#btnArea{
+  width: 408px;
+  height: 150px;
+  background-color: #cdc1b5;
+  border: 2px solid #978b7f;
+  margin: 0 auto;
+  font-size: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#btnArea #Up{
+  background: #978b7f;
+    color: #fff;
+    width: 86px;
+    height: 53px;
+    border-radius: 3px;
+    font-size: 30px;
+}
+
+#Left{
+  background: #978b7f;
+    color: #fff;
+    width: 86px;
+    height: 53px;
+    border-radius: 3px;
+    font-size: 30px;
+}
+
+#Down{
+  background: #978b7f;
+    color: #fff;
+    width: 86px;
+    height: 53px;
+    border-radius: 3px;
+    font-size: 30px;
+}
+
+#Right{
+  background: #978b7f;
+    color: #fff;
+    width: 86px;
+    height: 53px;
+    border-radius: 3px;
+    font-size: 30px;
+}
+
+/* 클릭된 버튼의 스타일 및 전환 효과 */
+button.pressed {
+  transform: scale(1.1);
+}
+
+button:active {
+  background-color: lightgray;
+}

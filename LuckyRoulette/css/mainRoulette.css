@@ -1,0 +1,198 @@
+@keyframes fadeInLeft {
+	0% {
+			opacity: 0;
+			transform: translate3d(-100%, 0, 0);
+	}
+	to {
+			opacity: 1;
+			transform: translateZ(0);
+	}
+}
+
+@keyframes fadeInRight {
+	0% {
+		opacity: 1;
+			transform: translateZ(0);
+	}
+	to {
+		opacity: 0;
+		transform: translate3d(100%, 0, 0);
+	}
+}
+
+body{
+background: rgb(192, 192, 192);
+}
+
+.topTitle{
+	width: 80%;
+	height: 300px;
+	/* background: red; */
+	position: relative;
+	top:100px;
+	left: 9%;
+	background: url('../img/logo.png') no-repeat center;
+  z-index: 10;
+	animation: fadeInLeft 1s;
+}
+.rouletter {
+  position: relative;
+	margin-top: 12%;
+	margin-left: 40%;
+  width: 400px;
+  height: 400px;
+
+	animation: jumping 1.5s alternate;
+}
+
+.StartContainer{
+	width: 98%;
+	height: 1100px;
+	background: rgb(209, 209, 209);
+	position:absolute;
+	z-index: 10;
+}
+
+.StartContainer .Description{
+	position: absolute;
+	top:40%;
+	left:30%;
+	font-size: 55px;
+	color: #eee;
+	animation: fadeInLeft 1s;
+
+}
+.StartContainer .GameStart{
+	position: absolute;
+	top:50%;
+	left:42%;
+	font-size: 55px;
+	/* color: white; */
+	/* background: gold;
+	border: 15px double greenyellow;
+	border-radius: 50%; */
+	padding: 30px;
+  border: none;
+	/* text-shadow: 3px 4px 5px black; */
+	animation: fadeInLeft 1s;
+	cursor: pointer;
+	width: 300px;
+	height: 150px;
+	background: url('../img/startButton.png') no-repeat center;
+}
+
+@keyframes jumping {
+	from {
+    top: -500px;
+  }
+  to {
+    top: 0px;
+  }
+}
+
+
+.rouletter-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 472px;
+  height: 472px;
+  border-radius: 472px;
+  overflow: hidden;
+}
+.rouletter-wacu {
+  width: 100%;
+  height: 100%;
+  /* background: #f5f5f2
+    url("https://m.lifeplanet.co.kr:444/commons/slink/administrator/openInnovation/img/MO)%20360%ED%94%8C%EB%9E%98%EB%8B%9B_%EB%A3%B0%EB%A0%9B%ED%8C%90_476x476_201026.png")
+    no-repeat; */
+		background: #f5f5f2
+    url("../img/Roulette.png")
+    no-repeat;
+  background-size: 100%;
+  transform-origin: center;
+  transition-timing-function: ease-in-out;
+  transition: 2s;
+}
+.rouletter-arrow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 1px;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  border-top: 40px solid red;
+  border-bottom: 0px solid transparent;
+}
+.rouletter-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
+  background: #fff;
+  border-image: linear-gradient(to right, #fbfcb9be, #ffcdf3aa, #65d3ffaa);
+  border: 2px solid;
+}
+
+.hidden-input {
+  display: none;
+}
+/* 종료 창 영역 - 다른 게임 넘어가는 창 */
+.endContainer{
+	
+	width: 33%;
+	height: 50%;
+	/* background: rgba(0,0,0,0.3); */
+	position:absolute;
+	top:25%;
+	left: 33%;
+	background:rgb(184, 60, 157);
+	border: 10px double goldenrod;
+	border-radius: 10%;
+	z-index: 11;
+}
+.endContainer .endMessage{
+	color: #fff;
+	font-size: 50px;
+	position: absolute;
+	top: 20%;
+	left: 29%;
+	background:rgb(184, 60, 157);
+
+}
+.endContainer .endMessage2{  
+	color: #fff;
+	font-size: 35px;
+	position: absolute;
+	top: 45%;
+	left: 19%;
+	width: 500px;
+	/* background:rgb(184, 60, 157); */
+	margin: 0 auto;
+}
+
+.endContainer .applyBtn{
+	color: #fff;
+	position: absolute;
+	top: 70%;
+	left: 31%;
+	font-size: 50px;
+	background:rgb(197, 189, 178);
+	border: 3px solid #eee;
+	/* position: absolute; */
+	/* display: block; */
+}
+
+/* 옵션 */
+.disable{
+	opacity: 0;
+	}
+	.Hidden{
+		display: none;
+	}
