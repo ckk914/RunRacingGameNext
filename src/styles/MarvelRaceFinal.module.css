@@ -1,0 +1,251 @@
+.gameContainer {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #000428, #004e92);
+    padding: 2rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gameTitle {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #ff4e50, #f9d423);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 20px rgba(255, 78, 80, 0.5);
+    margin-bottom: 1rem;
+}
+
+.gameHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.upperSection {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.controls {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.inputSection {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.input {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    width: 200px;
+    font-size: 1rem;
+}
+
+.input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.addButton,
+.startButton,
+.resetButton {
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.addButton {
+    background: linear-gradient(45deg, #00c6ff, #0072ff);
+    box-shadow: 0 0 15px rgba(0, 198, 255, 0.3);
+}
+
+.startButton {
+    background: linear-gradient(45deg, #00b09b, #96c93d);
+    box-shadow: 0 0 15px rgba(0, 176, 155, 0.3);
+}
+
+.resetButton {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    box-shadow: 0 0 15px rgba(255, 65, 108, 0.3);
+}
+
+.addButton:hover:not(:disabled),
+.startButton:hover:not(:disabled),
+.resetButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    filter: brightness(1.2);
+}
+
+.addButton:disabled,
+.startButton:disabled,
+.resetButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.participantsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.75rem;
+    padding: 0.5rem;
+}
+
+.participant {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    animation: glow 2s infinite alternate;
+    backdrop-filter: blur(5px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.removeButton {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.removeButton:hover:not(:disabled) {
+    color: #ff4b2b;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.removeButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.raceTrack {
+    position: relative;
+    height: 650px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.finishLine {
+    position: absolute;
+    height: 100%;
+    width: 1rem;
+    background: repeating-linear-gradient(45deg,
+            rgba(255, 215, 0, 0.5),
+            rgba(255, 215, 0, 0.5) 10px,
+            rgba(0, 0, 0, 0.5) 10px,
+            rgba(0, 0, 0, 0.5) 20px);
+    border-left: 2px solid gold;
+    border-right: 2px solid gold;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.character {
+    position: absolute;
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    transform: translate(-50%, -50%);
+    transition: all 0.1s;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    white-space: nowrap;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.obstacle {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.winnerAnnouncement {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    animation: bounce 1s infinite;
+    z-index: 1000;
+    border: 2px solid gold;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+.trophyIcon {
+    color: gold;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+}
+
+.winnerText {
+    font-size: 2rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #f12711, #f5af19);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 20px rgba(241, 39, 17, 0.5);
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translate(-50%, -45%);
+    }
+
+    50% {
+        transform: translate(-50%, -55%);
+    }
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+
+    to {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+}
