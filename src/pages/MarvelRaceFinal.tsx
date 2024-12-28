@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, memo } from 'react';
 import { Shield, Star, Zap, Trophy, X } from 'lucide-react';
 import styles from '../styles/MarvelRaceFinal.module.css';
 
@@ -25,7 +24,7 @@ const RUNNER_EMOJIS = [
   '🔥', '⭐️', '💫', '🌪️', '🦹', '🦹‍♂️', '🦹‍♀️', '🎯', '🎪', '🎨',
 ];
 
-const ObstacleIcon: React.FC<{ type: 'shield' | 'star' | 'zap'; rotation: number }> = ({ type, rotation }) => {
+const ObstacleIcon = memo<{ type: 'shield' | 'star' | 'zap'; rotation: number }>(({ type, rotation }) => {
   const style = { transform: `rotate(${rotation}deg)` };
   switch (type) {
     case 'shield': return <Shield size={24} style={style} />;
@@ -33,7 +32,19 @@ const ObstacleIcon: React.FC<{ type: 'shield' | 'star' | 'zap'; rotation: number
     case 'zap': return <Zap size={24} style={style} />;
     default: return null;
   }
-};
+});
+
+const Character = memo<{ char: Character }>(({ char }) => (
+  <div
+    className={styles.character}
+    style={{
+      transform: `translate(${char.x}px, ${char.y}px)`,
+      backgroundColor: char.color,
+    }}
+  >
+    {char.emoji} {char.name}
+  </div>
+));
 
 const MarvelRaceFinal: React.FC = () => {
   const [participants, setParticipants] = useState<Array<{ name: string; emoji: string }>>([]);
@@ -48,7 +59,7 @@ const MarvelRaceFinal: React.FC = () => {
   const [inputName, setInputName] = useState('');
   const [winner, setWinner] = useState<string | null>(null);
   const animationFrameRef = useRef<number>(0);
-  const finishLine = 800;
+  const finishLine = 1000; // 코스 길이 증가
 
   const addParticipant = useCallback(() => {
     if (inputName.trim() && !running) {
@@ -113,11 +124,15 @@ const MarvelRaceFinal: React.FC = () => {
 
   useEffect(() => {
     let lastTime = 0;
+    let frameCount = 0;
 
     const animate = (currentTime: number) => {
-      if (currentTime - lastTime >= 16.67) {
-        updateGame();
-        lastTime = currentTime;
+      frameCount++;
+      if (frameCount % 2 === 0) { // 프레임 건너뛰기로 성능 최적화
+        if (currentTime - lastTime >= 16.67) {
+          updateGame();
+          lastTime = currentTime;
+        }
       }
       if (running) animationFrameRef.current = requestAnimationFrame(animate);
     };
@@ -173,16 +188,7 @@ const MarvelRaceFinal: React.FC = () => {
       <div className={styles.raceTrack}>
         <div className={styles.finishLine} style={{ left: `${finishLine}px` }} />
         {characters.map((char) => (
-          <div
-            key={char.name}
-            className={styles.character}
-            style={{
-              transform: `translate(${char.x}px, ${char.y}px)`,
-              backgroundColor: char.color,
-            }}
-          >
-            {char.emoji} {char.name}
-          </div>
+          <Character key={char.name} char={char} />
         ))}
         {obstacles.map((obstacle, index) => (
           <div
