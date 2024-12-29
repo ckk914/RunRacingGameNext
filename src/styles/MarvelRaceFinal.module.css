@@ -161,7 +161,6 @@
     backdrop-filter: blur(10px);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    /* 스크롤 제거 */
 }
 
 .raceTrackInner {
@@ -283,49 +282,44 @@
         width: 100%;
     }
 
-.raceTrack {
-    height: 300px;
-    transform-origin: top left;
-    transform: scale(0.4);
-    /* 모바일에서 전체 화면에 맞게 축소 */
-    width: 250%;
-    /* 축소된 만큼 너비 증가 */
-    margin-left: -1rem;
-}
-   .raceTrackInner {
-       /* finishLine + 여유 공간 유지 */
-       width: 1100px;
-       padding: 0 1rem;
-       /* 좌우 여백 추가 */
-   }
-          .character {
-              font-size: 2rem;
-              /* 크기 키워서 축소해도 잘 보이게 */
-              padding: 0.5rem 1.5rem;
-          }
+    .raceTrack {
+        height: 300px;
+        transform-origin: top left;
+        transform: scale(0.35);
+        width: 285%;
+        margin-left: -2rem;
+        overflow-x: hidden;
+    }
 
-                          .finishLine {
-                              right: auto;
-                              left: 1000px;
-                              /* 결승선 위치 고정 */
-                          }
+    .raceTrackInner {
+        width: 1200px;
+        padding: 0 1rem;
+    }
 
-                                                   .obstacle {
-                                                       transform: scale(2.5) translate(-50%, -50%);
-                                                       /* 장애물도 크게 */
-                                                   }
+    .character {
+        font-size: 2.5rem;
+        padding: 0.75rem 2rem;
+    }
+
+    .finishLine {
+        right: auto;
+        left: 1000px;
+    }
+
+    .obstacle {
+        transform: scale(2.5) translate(-50%, -50%);
+    }
+
     .participantsList {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
         font-size: 0.9rem;
     }
 
-  .winnerAnnouncement {
-      transform: scale(1) translate(-50%, -50%);
-  }
+    .winnerAnnouncement {
+        transform: scale(0.8) translate(-50%, -50%);
+    }
 
     .winnerText {
         font-size: 1.5rem;
     }
-
-    
 }
