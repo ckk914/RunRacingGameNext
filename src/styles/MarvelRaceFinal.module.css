@@ -160,18 +160,14 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-    overflow-x: auto;
-    /* 가로 스크롤 활성화 */
-    -webkit-overflow-scrolling: touch;
-    /* iOS에서 부드러운 스크롤 */
+    overflow: hidden;
+    /* 스크롤 제거 */
 }
 
 .raceTrackInner {
     position: relative;
-    width: 1100px;
-    /* finishLine + 여유 공간 */
+    width: 100%;
     height: 100%;
-    min-width: 100%;
 }
 
 .finishLine {
@@ -264,7 +260,7 @@
 /* 모바일 대응을 위한 미디어 쿼리 */
 @media (max-width: 768px) {
     .gameContainer {
-        padding: 1rem;
+        padding: 0.5rem;
     }
 
     .gameTitle {
@@ -289,11 +285,12 @@
 
 .raceTrack {
     height: 300px;
-    margin: 0 -1rem;
-    /* 컨테이너 패딩 상쇄 */
-    width: calc(100% + 2rem);
-    border-radius: 0;
-    /* 모바일에서는 전체 너비 사용 */
+    transform-origin: top left;
+    transform: scale(0.4);
+    /* 모바일에서 전체 화면에 맞게 축소 */
+    width: 250%;
+    /* 축소된 만큼 너비 증가 */
+    margin-left: -1rem;
 }
    .raceTrackInner {
        /* finishLine + 여유 공간 유지 */
@@ -301,23 +298,30 @@
        padding: 0 1rem;
        /* 좌우 여백 추가 */
    }
-        .character {
-            font-size: 0.8rem;
-            padding: 0.25rem 0.75rem;
-        }
+          .character {
+              font-size: 2rem;
+              /* 크기 키워서 축소해도 잘 보이게 */
+              padding: 0.5rem 1.5rem;
+          }
 
-                   .finishLine {
-                       right: 50px;
-                       /* 오른쪽 여백 확보 */
-                   }
+                          .finishLine {
+                              right: auto;
+                              left: 1000px;
+                              /* 결승선 위치 고정 */
+                          }
+
+                                                   .obstacle {
+                                                       transform: scale(2.5) translate(-50%, -50%);
+                                                       /* 장애물도 크게 */
+                                                   }
     .participantsList {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
         font-size: 0.9rem;
     }
 
-    .winnerAnnouncement {
-        padding: 1rem 1.5rem;
-    }
+  .winnerAnnouncement {
+      transform: scale(1) translate(-50%, -50%);
+  }
 
     .winnerText {
         font-size: 1.5rem;
