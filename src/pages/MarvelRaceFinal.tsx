@@ -152,7 +152,7 @@ const MarvelRaceFinal: React.FC = () => {
 
     return (
         <div className={styles.gameContainer}>
-            <h1 className={styles.gameTitle}>🏃‍♂️ MARVEL RACE 🏃‍♀️</h1>
+            <h1 className={styles.gameTitle}>🏃‍♂️ RUN RACING GAME 🏃‍♀️</h1>
             <div className={styles.gameHeader}>
                 <div className={styles.participantsList}>
                     {participants.map((participant, idx) => (
