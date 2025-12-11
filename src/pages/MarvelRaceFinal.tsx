@@ -171,7 +171,7 @@ const MarvelRaceFinal: React.FC = () => {
                         onChange={(e) => setInputName(e.target.value)}
                         onKeyPress={handleKeyPress}
                         className={styles.input}
-                        placeholder="참가자 이름"
+                        placeholder="User name"
                         disabled={running}
                     />
                     <button onClick={addParticipant} disabled={running} className={styles.addButton}>

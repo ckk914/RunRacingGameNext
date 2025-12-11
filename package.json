@@ -12,6 +12,7 @@
     "lucide-react": "^0.469.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router-dom": "^7.10.1",
     "react-scripts": "5.0.1"
   },
   "scripts": {
@@ -46,6 +47,6 @@
     "@testing-library/react": "^16.1.0",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
-    "gh-pages": "^6.2.0"
+    "gh-pages": "^6.3.0"
   }
 }
